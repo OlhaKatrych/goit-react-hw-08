@@ -1,7 +1,8 @@
 import ContactList from "../ContactList/ContactList";
 import css from "./SearchBar.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { selectNameFilter, changeFilter } from "../../redux/filtersSlice";
+import { selectNameFilter } from "../../redux/filters/selectors";
+import { changeFilter } from "../../redux/filters/filtersSlice";
 
 function SearchBar() {
   const value = useSelector(selectNameFilter);

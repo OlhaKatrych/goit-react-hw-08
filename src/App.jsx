@@ -4,20 +4,22 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import ContactForm from "./components/ContactForm/ContactForm";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import { fetchContacts } from "./redux/contactsOps";
+import { fetchContacts } from "./redux/contacts/contactsOps";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import RegisterForm from "./components/RegisterForm/RegisterForm";
 
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.contacts.loading);
   const isError = useSelector((state) => state.contacts.error);
   useEffect(() => {
-    dispatch(fetchContacts());
+   // dispatch(fetchContacts());
   }, [dispatch]);
   return (
     <div className={css.rootContainer}>
       <h1 className={css.title}>Phonebook</h1>
+      <RegisterForm />
       <ContactForm />
       <SearchBar />
       {isLoading && <Loader />}
