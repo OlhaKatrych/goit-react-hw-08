@@ -1,27 +1,27 @@
 import { Formik, Form, Field } from "formik";
-import css from "./ContactForm.module.css";
+import css from "./LoginForm.module.css";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/contactsOps";
+import { logIn } from "../../redux/auth/authOps";
 
 const contactSchema = Yup.object().shape({
-  name: Yup.string()
+  email: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Requred"),
-  number: Yup.string().required("Required"),
+  password: Yup.string().required("Required"),
 });
 
 const initialValues = {
-  name: "",
-  number: "",
+  email: "",
+  password: "",
 };
 function ContactForm() {
   const dispatch = useDispatch();
 
   function handleSubmit(value, action) {
-    dispatch(addContact(value));
+    dispatch(logIn(value));
     action.resetForm();
   }
   return (
@@ -33,21 +33,21 @@ function ContactForm() {
       <div className={css.containerForm}>
         <Form className={css.form}>
           <label htmlFor="">
-            <span className={css.inputLabel}>Name</span>
-            <Field type="text" name="name" className={css.field} />
-            <ErrorMessage name="name" component="span" className={css.error} />
+            <span className={css.inputLabel}>Email</span>
+            <Field type="email" name="email" className={css.field} />
+            <ErrorMessage name="email" component="span" className={css.error} />
           </label>
           <label htmlFor="">
-            <span className={css.inputLabel}>Number</span>
-            <Field type="text" name="number" className={css.field} />
+            <span className={css.inputLabel}>Password</span>
+            <Field type="password" name="password" className={css.field} />
             <ErrorMessage
-              name="number"
+              name="password"
               component="span"
               className={css.error}
             />
           </label>
           <button type="submit" className={css.btnSubmit}>
-            Add contact
+            Log in
           </button>
         </Form>
       </div>

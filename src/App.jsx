@@ -1,7 +1,7 @@
 import css from "./App.module.css";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBar from "./components/SearchBar/SearchBar";
-import ContactForm from "./components/ContactForm/ContactForm";
+import ContactForm from "./components/LoginForm/LoginForm";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import { fetchContacts } from "./redux/contacts/contactsOps";

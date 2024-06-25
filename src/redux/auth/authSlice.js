@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register } from "./authOps";
+import { register, logIn } from "./authOps";
 
 export const authSlice = createSlice({
   name: "auth",
@@ -29,6 +29,22 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
       })
       .addCase(register.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
+      })
+      .addCase(logIn.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+      })
+      .addCase(logIn.fulfilled, (state, action) => {
+        console.log(action);
+        state.isLoading = false;
+        state.isError = false;
+        state.isLoggedIn = true;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+      })
+      .addCase(logIn.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
       });
