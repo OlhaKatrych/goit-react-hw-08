@@ -11,7 +11,7 @@ function Navigation() {
       <NavLink className={css.link} to="/">
         Home
       </NavLink>
-      {isLoggedIn && <NavLink to="/tasks"></NavLink>}
+      {isLoggedIn && <NavLink className={css.link} to="/contacts"></NavLink>}
     </nav>
   );
 }

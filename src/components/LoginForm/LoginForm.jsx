@@ -22,6 +22,7 @@ function ContactForm() {
 
   function handleSubmit(value, action) {
     dispatch(logIn(value));
+    console.log(value)
     action.resetForm();
   }
   return (
