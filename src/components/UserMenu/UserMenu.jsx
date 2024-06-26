@@ -8,7 +8,9 @@ function UserMenu() {
   return (
     <div>
       <p>Welcome, {selectUser.name}</p>
-      <button onClick={() => dispatch(logOut())}>Logout</button>
+      <button type="button" onClick={() => dispatch(logOut())}>
+        Logout
+      </button>
     </div>
   );
 }
