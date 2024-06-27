@@ -3,7 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
-} from "../contacts/contactsOps";
+} from "./operations";
 
 export const contactsSlice = createSlice({
   name: "contacts",

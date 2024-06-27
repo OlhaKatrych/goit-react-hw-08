@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 
 import { useDispatch } from "react-redux";
 
-import { register } from "../../redux/auth/authOps";
+import { register } from "../../redux/auth/operations";
 
 const initialValues = {
   name: "",

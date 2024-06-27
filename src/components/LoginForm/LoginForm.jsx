@@ -3,7 +3,7 @@ import css from "./LoginForm.module.css";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { logIn } from "../../redux/auth/authOps";
+import { logIn } from "../../redux/auth/operations";
 
 const contactSchema = Yup.object().shape({
   email: Yup.string()

@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { fetchContacts } from "../../redux/contacts/contactsOps";
+import { fetchContacts } from "../../redux/contacts/operations";
 import { selectLoading, selectContacts } from "../../redux/contacts/selectors";
 
 function ContactsPage() {

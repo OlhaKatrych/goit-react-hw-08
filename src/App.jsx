@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import PrivateRoute from "./PrivateRoute";
 import RestrictedRoute from "./RestrictedRoute";
-import { refreshUser } from "./redux/auth/authOps";
+import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefresh } from "./redux/auth/selectors";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -21,9 +21,7 @@ function App() {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  return isRefreshing ? (
-    <div>REFRESHING USER...</div>
-  ) : (
+  return isRefreshing ? <div>REFRESHING USER...</div> : (
     <div>
       <Layout>
         <Suspense fallback={<div>Loading...</div>}>
