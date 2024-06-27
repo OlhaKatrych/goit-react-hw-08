@@ -1,6 +1,8 @@
 .container {
 
     margin-right: auto;
+    display: flex;
+    gap: 10px;
 }
 
 .link {
